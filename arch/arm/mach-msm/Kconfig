@@ -872,6 +872,14 @@ config MSM_STACKED_MEMORY
 	  memory.  When present this memory bank is used for a high speed
 	  shared memory interface.  When not present regular RAM is used.
 
+config STOCK_VOLTAGE
+	bool "Use stock voltage"
+	default y
+	help
+	  This option is used to indicate the presence of lowered cpu voltages
+	  in acpuclock. If checked thed device will use the stock voltages
+	  instead of the lowered values
+
 config PHYS_OFFSET
 	hex "Kernel physical start address"
 	default "0x40800000" if ARCH_MSM9615
@@ -1550,12 +1558,6 @@ config MSM_DALRPC_TEST
 	help
 	  Exercises DAL RPC calls to QDSP6.
 
-config CMDLINE_OPTIONS
-	bool "Enable cmdline options command parsing"
-	default n
-	help
-		This enables the parsing of cmdline options.
-
 if CPU_FREQ_MSM
 
 config MSM_CPU_FREQ_SET_MIN_MAX
@@ -1577,16 +1579,28 @@ config MSM_CPU_FREQ_MIN
 
 endif # CPU_FREQ_MSM
 
+if PERFLOCK
+
+config MSM_CPU_FREQ_ONDEMAND_MAX
+        int "Max"
+        default 384000
+
+config MSM_CPU_FREQ_ONDEMAND_MIN
+        int "Min"
+        default 245760
+
+endif # PERFLOCK
+
+config CMDLINE_OPTIONS
+  bool "Enable cmdline options command parsing"
+  default n
+  help
+     This enables the parsing of cmdline options.
+
 config ACPUCLOCK_OVERCLOCKING
 	bool "Enable support for CPU overclocking"
 	default n
-	depends on CPU_FREQ
-	depends on ARCH_MSM7X30
-
-config JESUS_PHONE
-	bool "Enable up to 1.8Ghz speeds"
-	default n
-	depends on ACPUCLOCK_OVERCLOCKING
+	depends on CPU_FREQ && !PERFLOCK
 	depends on ARCH_MSM7X30
 
 config MSM_CPU_AVS
@@ -1651,20 +1665,6 @@ config MSM7KV2_AUDIO
 	help
 	  Enables QDSP5V2-based audio drivers for audio playbacks and
 	  voice call.
-
-choice
-	prompt "MSM7K v2 Audio Version"
-	depends on MSM7KV2_AUDIO
-	default MSM7KV2_2X_AUDIO
-
-	config MSM7KV2_1X_AUDIO
-	  bool
-	    prompt "1x Version"
-
-	config MSM7KV2_2X_AUDIO
-	  bool
-	    prompt "2x Version"
-endchoice
 
 config MSM7KV2_AUDIO_WORKAROUND
 	bool "MSM7K v2 audio workaround"
@@ -1881,12 +1881,6 @@ config MICROP_COMMON
 	depends on I2C
 	help
 	  HTC Microp-P support.
-
-config HTC_SDIO_DEBUG
-	tristate "HTC sdio driver debug"
-	default n
-	help
-	  Enable HTC sdio driver debug.
 
 config HTC_HEADSET_MGR
 	tristate "HTC headset manager driver"
@@ -2217,6 +2211,13 @@ config SUPPORT_DQ_BATTERY
 	help
 		support DQ battery.
 
+config FORCE_FAST_CHARGE
+        bool "Force AC charge mode at will"
+        default y
+        help
+          A simple sysfs interface to force adapters that
+          are detected as USB to charge as AC.
+
 config MSM_FAKE_BATTERY
 		depends on POWER_SUPPLY
 		default n
@@ -2347,7 +2348,14 @@ config REMOVE_EBI1_FIXED_CLK
 	default n
 	help
 		use for 2x Radio
-
+		
+config ROM_TYPE
+	bool "SYSFS interface to set misc parameters"
+	default y
+	help
+		A simple sysfs interface to define rom type
+		ex: sense vs aosp
+		
 config HTC_ACCESSORY_ONEWIRE
         tristate "HTC accessory one wire protocol driver"
         default n
