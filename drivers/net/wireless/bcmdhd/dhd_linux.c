@@ -548,8 +548,11 @@ static int dhd_set_suspend(int value, dhd_pub_t *dhd)
 			/* Kernel suspended */
 			DHD_ERROR(("%s: force extra Suspend setting\n", __FUNCTION__));
 
+#if !defined(SUPPORT_PM2_ONLY)
 			dhd_wl_ioctl_cmd(dhd, WLC_SET_PM, (char *)&power_mode,
-			                 sizeof(power_mode), TRUE, 0);
+					sizeof(power_mode), TRUE, 0);
+#endif
+
 
 			/* Enable packet filter, only allow unicast packet to send up */
 			dhd_set_packet_filter(1, dhd);
