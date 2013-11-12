@@ -1,7 +1,7 @@
-/* This file is auto generated, version 22 */
+/* This file is auto generated, version 23 */
 /*  PREEMPT */
 #define UTS_MACHINE "arm"
-#define UTS_VERSION "#22 PREEMPT Mon Sep 23 11:46:43 EDT 2013"
-#define LINUX_COMPILE_BY "bsmitty2"
-#define LINUX_COMPILE_HOST "bsmitty2-HP-Compaq-6710b-RM342UT-ABA"
-#define LINUX_COMPILER "gcc version 4.7.4 20130508 (prerelease) (crosstool-NG hg+default-4c63ce24fccd - Linaro GCC 2013.05) "
+#define UTS_VERSION "#23 PREEMPT Tue Nov 12 16:47:35 EST 2013"
+#define LINUX_COMPILE_BY "bsmitty"
+#define LINUX_COMPILE_HOST "bsmitty-HP-EliteBook-8730w"
+#define LINUX_COMPILER "gcc version 4.7.3 20130226 (prerelease) (crosstool-NG linaro-1.13.1-4.7-2013.03-20130313 - Linaro GCC 2013.03) "

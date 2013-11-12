@@ -6,6 +6,7 @@ deps_scripts/kconfig/lxdialog/textbox.o := \
   scripts/kconfig/lxdialog/dialog.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/include/features.h \
+  /usr/include/stdc-predef.h \
   /usr/include/x86_64-linux-gnu/bits/predefs.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -18,6 +19,7 @@ deps_scripts/kconfig/lxdialog/textbox.o := \
   /usr/include/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/sigset.h \
@@ -27,6 +29,7 @@ deps_scripts/kconfig/lxdialog/textbox.o := \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/fcntl.h \
   /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
   /usr/include/x86_64-linux-gnu/bits/stat.h \
   /usr/include/x86_64-linux-gnu/bits/fcntl2.h \
   /usr/include/unistd.h \
@@ -41,6 +44,7 @@ deps_scripts/kconfig/lxdialog/textbox.o := \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/string.h \
   /usr/include/x86_64-linux-gnu/bits/string.h \
