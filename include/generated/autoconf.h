@@ -1,6 +1,6 @@
 /*
  * Automatically generated C config: don't edit
- * Linux/arm 3.0.96 Kernel Configuration
+ * Linux/arm 3.0.101 Kernel Configuration
  */
 #define CONFIG_IP6_NF_MATCH_AH 1
 #define CONFIG_RING_BUFFER 1
@@ -309,6 +309,7 @@
 #define CONFIG_MSM_IDLE_WAIT_ON_MODEM 2000
 #define CONFIG_SND_USB 1
 #define CONFIG_RD_GZIP 1
+#define CONFIG_LBDAF 1
 #define CONFIG_LIGHTSENSOR_MICROP 1
 #define CONFIG_EXT4_FS_SECURITY 1
 #define CONFIG_INET_XFRM_MODE_TRANSPORT 1
